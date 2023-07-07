@@ -21,10 +21,21 @@ RSpec.describe Node do
       list.append("doop")
       expect(list.head.data).to eq("doop")
       expect(list.head.next_node).to eq(nil)
+
+      list.append('deep')
+      expect(list.head.data).to eq("doop")
+      expect(list.head.next_node.data).to eq('deep')
     end
 
     it 'can count the number of nodes on the list' do
-      list.append("doop")
-      expect(list.count).to eq(1)
+        list.append("doop")
+        expect(list.head.data).to eq("doop")
+        expect(list.head.next_node).to eq(nil)
+  
+        list.append('deep')
+        expect(list.head.data).to eq("doop")
+        expect(list.head.next_node.data).to eq('deep')
+
+        expect(list.count).to eq(2)
     end
 end
