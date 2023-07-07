@@ -44,12 +44,28 @@ class LinkedList
         # if current isn't nil, increment count
         while current
             count += 1
-            
+
             # updates current to the next node
             current = current.next_node
         end
         count
     end
-    
+
+    def to_string
+        string = ''
+
+        current = @head
+
+        # iterate thru the linked list
+        while current
+            # add node data to string
+            string = string + current.data + ' '
+        
+            # update current
+            current = current.next_node
+        end
+
+        string.chop!
+    end
 end
     
