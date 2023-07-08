@@ -148,28 +148,51 @@ class LinkedList
     end
       
     def pop 
-        current = @head
-        count = 1
-
-        while count != self.count - 1
-            current = current.next_node
-            count += 1
+        return nil if @head.nil?
+  
+        if @head.next_node.nil?
+            last_node = @head.data
+            @head = nil
+            return last_node
         end
+        
+        current = @head
+        
+        while current.next_node.next_node
+            current = current.next_node
+        end
+        
         last_node = current.next_node.data
         current.next_node = nil
         last_node
+        # current = @head
+        # count = 1
+
+        # while count != self.count - 1
+        #     current = current.next_node
+        #     count += 1
+        # end
+        # last_node = current.next_node.data
+        # current.next_node = nil
+        # last_node
     end
 
     def play
         input_words = self.to_string
 
-        puts `say -r 250 -v Boing #{input_words}`
+        puts `say -r 200 -v Boing #{input_words}`
     end
 
     private
   
     def valid
-        ["doop", "deep", "dop", "woo", "su", "mu", "wu", "hee", "haw", "ding", "no", "mo", "ha", "plop", "tur", "ing"]
+        ["doop", "deep", "dop", "woo", "su", "mu", "wu", "hee", 
+        "haw", "ding", "no", "mo", "ha", "plop", "tur", "ing",
+        "tee", "dee", "bop", "la", "na", "who", "da", "best", 
+        "we", "da", "best", "would", "win", "in", "a", "fight",
+        "elon", "musk", "or", "our", "lizard", "overlord", "the", 
+        "zuck", "er", "berkg", "you", "decide", "hello", "Epic",
+        "Rap", "Battles", "of", "History"]
     end
 end
     
