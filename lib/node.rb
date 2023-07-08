@@ -129,17 +129,15 @@ class LinkedList
 
     def includes?(value)
         current = @head
-        in_list = false
-
-        # traverse the linkedlist while current != nil
+      
         while current
-            if current.data == value
-                in_list = true
-                break
-            end
-            current = current.next_node
+          return true if current.data == value
+          current = current.next_node
         end
-        in_list
+      
+        false
     end
+      
+    
 end
     
