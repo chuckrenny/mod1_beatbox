@@ -60,5 +60,15 @@ RSpec.describe Node do
         expect(list.head.next_node.data).to eq("doop")
     end
 
+    it 'can inset nodes to the list' do 
+        list.append("doop")
+        list.append("deep")
+        list.prepend("dop")
+        list.insert(1, 'woo')
 
+        expect(list.to_string).to eq("dop woo doop deep")
+
+        list.insert(2, 'beep')
+        expect(list.to_string).to eq("dop woo beep doop deep")
+    end
 end

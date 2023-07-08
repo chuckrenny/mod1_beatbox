@@ -81,8 +81,31 @@ class LinkedList
         end
     end
 
-    
+    def insert(index, data)
+        if index == 0
+            # Insert at the beginning of the list
+            new_node = Node.new(data)
+            new_node.next_node = @head
+            @head = new_node
+        else
+            count = 0
+            current = @head
 
+            # current will be ahead of the new node inserted
+            while count != index - 1
+                # move to the next node
+                current = current.next_node 
+                count += 1
+            end
+
+            # create node
+            new_node = Node.new(data)
+            # point to the currents previous node
+            new_node.next_node = current.next_node
+            # currents next node will point at new node
+            current.next_node = new_node
+        end
+    end
 
 end
     
