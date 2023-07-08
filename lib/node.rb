@@ -75,10 +75,14 @@ class LinkedList
             @head = Node.new(data)
 
         else #start from the head node
-            old_head = head
-            head = Node.new(data, old_head)
-
+            old_head = @head
+            @head = Node.new(data)
+            @head.next_node = old_head
         end
     end
+
+    
+
+
 end
     
