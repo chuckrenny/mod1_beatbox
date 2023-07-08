@@ -138,6 +138,18 @@ class LinkedList
         false
     end
       
-    
+    def pop 
+        current = @head
+        last = self.count
+        count = 1
+
+        while count != last - 1
+            current = current.next_node
+            count += 1
+        end
+        last_node = current.next_node.data
+        current.next_node = nil
+        last_node
+    end
 end
     
