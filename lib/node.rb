@@ -140,10 +140,9 @@ class LinkedList
       
     def pop 
         current = @head
-        last = self.count
         count = 1
 
-        while count != last - 1
+        while count != self.count - 1
             current = current.next_node
             count += 1
         end

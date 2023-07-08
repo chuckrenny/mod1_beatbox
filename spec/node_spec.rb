@@ -92,4 +92,16 @@ RSpec.describe Node do
         expect(list.includes?("meow")).to eq(false)
         expect(list.includes?("woo")).to eq(true)
     end
+
+    it 'can remove the last node in the list and return the data' do
+        list.append("doop")
+        list.append("deep")
+        list.prepend("dop")
+        list.insert(1, 'woo')
+
+        expect(list.to_string).to eq("dop woo doop deep")
+
+        expect(list.pop).to eq("deep")
+        expect(list.to_string).to eq("dop woo doop")
+    end
 end
