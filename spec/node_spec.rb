@@ -104,4 +104,6 @@ RSpec.describe Node do
         expect(list.pop).to eq("deep")
         expect(list.to_string).to eq("dop woo doop")
     end
+
+    
 end
