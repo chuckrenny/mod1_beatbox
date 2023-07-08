@@ -105,5 +105,15 @@ RSpec.describe Node do
         expect(list.to_string).to eq("dop woo doop")
     end
 
-    
+    it 'can append multiple nodes in the list' do
+        list.append("doop")
+        list.append("deep")
+        list.prepend("dop")
+        list.insert(1, 'woo')
+
+        expect(list.to_string).to eq("dop woo doop deep")
+
+        list.append("su wu mu")
+        expect(list.to_string).to eq("dop woo doop deep su wu mu")
+    end
 end
