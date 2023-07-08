@@ -151,8 +151,10 @@ class LinkedList
     end
       
     def pop 
+        # if linked list is empty return nil
         return nil if @head.nil?
   
+        # if linked lsit has one node
         if @head.next_node.nil?
             last_node = @head.data
             @head = nil
@@ -161,24 +163,16 @@ class LinkedList
         
         current = @head
         
+        # traverse list to find the second to last node
         while current.next_node.next_node
             current = current.next_node
         end
         
+        # Remove the last node from the linked list
         last_node = current.next_node.data
-        current.next_node = nil
-        last_node
+        current.next_node = nil 
 
-        # current = @head
-        # count = 1
-
-        # while count != self.count - 1
-        #     current = current.next_node
-        #     count += 1
-        # end
-        # last_node = current.next_node.data
-        # current.next_node = nil
-        # last_node
+        last_node    # return the last removed node
     end
 
     def rate(speed)
