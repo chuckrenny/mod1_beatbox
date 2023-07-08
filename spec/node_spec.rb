@@ -116,4 +116,17 @@ RSpec.describe Node do
         list.append("su wu mu")
         expect(list.to_string).to eq("dop woo doop deep su wu mu")
     end
+
+    it 'can play our linkedlist' do
+        list.append("doop")
+        list.append("deep")
+        list.prepend("dop")
+        list.insert(1, 'woo')
+        list.append("su wu mu")
+
+        expect(list.to_string).to eq("dop woo doop deep su wu mu")
+
+        list.append("hee haw ding no mo ha ha")
+        list.play
+    end
 end

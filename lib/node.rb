@@ -155,5 +155,11 @@ class LinkedList
         current.next_node = nil
         last_node
     end
+
+    def play
+        input_words = self.to_string
+
+        puts `say -r 100 -v Boing #{input_words}`
+    end
 end
     
