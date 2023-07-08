@@ -83,5 +83,13 @@ RSpec.describe Node do
         expect(list.find(1, 3)).to eq("woo doop deep")
     end
 
+    it 'can find a node value if it exists in list' do
+        list.append("doop")
+        list.append("deep")
+        list.prepend("dop")
+        list.insert(1, 'woo')
 
+        expect(list.includes?("meow")).to eq(false)
+        expect(list.includes?("woo")).to eq(true)
+    end
 end

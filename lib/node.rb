@@ -137,6 +137,7 @@ class LinkedList
                 in_list = true
                 break
             end
+            current = current.next_node
         end
         in_list
     end
