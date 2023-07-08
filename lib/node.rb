@@ -67,5 +67,88 @@ class LinkedList
 
         string.chop!
     end
+
+    def prepend(data)
+        # if linked list is empty
+        if @head.nil?    
+            # create new node with given data and assign it to head                   
+            @head = Node.new(data)
+
+        else #start from the head node
+            old_head = @head
+            @head = Node.new(data)
+            @head.next_node = old_head
+        end
+    end
+
+    def insert(index, data)
+        if index == 0
+            # Insert at the beginning of the list
+            new_node = Node.new(data)
+            new_node.next_node = @head
+            @head = new_node
+        else
+            count = 0
+            current = @head
+
+            # current will be ahead of the new node inserted
+            while count != index - 1
+                # move to the next node
+                current = current.next_node 
+                count += 1
+            end
+
+            # create node
+            new_node = Node.new(data)
+            # point to the currents previous node
+            new_node.next_node = current.next_node
+            # currents next node will point at new node
+            current.next_node = new_node
+        end
+    end
+
+    def find(index, quantity)
+        current = @head
+        count = 0
+
+        while count != index
+            current = current.next_node
+            count += 1
+        end
+        output = ''
+        count = 0
+
+        while count != quantity
+            output = output + current.data + " "
+            current = current.next_node
+            count += 1
+        end
+        # remove any whitespace characters at end of string
+        output.rstrip
+    end
+
+    def includes?(value)
+        current = @head
+      
+        while current
+          return true if current.data == value
+          current = current.next_node
+        end
+      
+        false
+    end
+      
+    def pop 
+        current = @head
+        count = 1
+
+        while count != self.count - 1
+            current = current.next_node
+            count += 1
+        end
+        last_node = current.next_node.data
+        current.next_node = nil
+        last_node
+    end
 end
     

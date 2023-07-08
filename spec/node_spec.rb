@@ -50,4 +50,58 @@ RSpec.describe Node do
 
         expect(list.to_string).to eq("doop deep")
     end
+
+    it 'can add nodes to the beginning of the list' do
+        list.append("doop")
+        list.append("deep")
+        list.prepend("dop")
+
+        expect(list.head.data).to eq("dop")
+        expect(list.head.next_node.data).to eq("doop")
+    end
+
+    it 'can inset nodes to the list' do 
+        list.append("doop")
+        list.append("deep")
+        list.prepend("dop")
+        list.insert(1, 'woo')
+
+        expect(list.to_string).to eq("dop woo doop deep")
+
+        list.insert(2, 'beep')
+        expect(list.to_string).to eq("dop woo beep doop deep")
+    end
+
+    it 'can find a node index and subsequently return quantity of data' do
+        list.append("doop")
+        list.append("deep")
+        list.prepend("dop")
+        list.insert(1, 'woo')
+
+        expect(list.find(2, 1)).to eq("doop")
+
+        expect(list.find(1, 3)).to eq("woo doop deep")
+    end
+
+    it 'can find a node value if it exists in list' do
+        list.append("doop")
+        list.append("deep")
+        list.prepend("dop")
+        list.insert(1, 'woo')
+
+        expect(list.includes?("meow")).to eq(false)
+        expect(list.includes?("woo")).to eq(true)
+    end
+
+    it 'can remove the last node in the list and return the data' do
+        list.append("doop")
+        list.append("deep")
+        list.prepend("dop")
+        list.insert(1, 'woo')
+
+        expect(list.to_string).to eq("dop woo doop deep")
+
+        expect(list.pop).to eq("deep")
+        expect(list.to_string).to eq("dop woo doop")
+    end
 end
