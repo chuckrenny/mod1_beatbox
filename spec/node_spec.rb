@@ -71,4 +71,5 @@ RSpec.describe Node do
         list.insert(2, 'beep')
         expect(list.to_string).to eq("dop woo beep doop deep")
     end
+
 end

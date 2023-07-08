@@ -107,5 +107,24 @@ class LinkedList
         end
     end
 
+    def find(index, quantity)
+        current = @head
+        count = 0
+        output = ''
+
+        while count != index
+            current = current.next_node
+            count += 1
+        end
+        count = 0
+
+        while count != quantity
+            output += current
+            current = current.next_node
+            count += 1
+        end
+
+        output.chop!
+    end
 end
     
