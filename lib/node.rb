@@ -16,23 +16,28 @@ class LinkedList
     end
     
     def append(data)
+        split_array = data.split(" ")
+
         # if linked list is empty
         if @head.nil?    
             # create new node with given data and assign it to head                   
             @head = Node.new(data)
 
-        else #start from the head node
+        else  #start from the head node
             current = @head
 
+            
             # while the next node isn't 'nil'
             while current.next_node
                 # move to the next node
                 current = current.next_node 
             end
 
-            # if reached end of list (current.next_node is nil),
-            # create a new node with the given data and make it the next_node of the current node
-            current.next_node = Node.new(data)
+            split_array.each do |element| 
+                  new_node = Node.new(element)
+                  current.next_node = new_node
+                  current = new_node
+            end
         end
     end
 
@@ -149,6 +154,12 @@ class LinkedList
         last_node = current.next_node.data
         current.next_node = nil
         last_node
+    end
+
+    def play
+        input_words = self.to_string
+
+        puts `say -r 100 -v Boing #{input_words}`
     end
 end
     
