@@ -110,12 +110,12 @@ class LinkedList
     def find(index, quantity)
         current = @head
         count = 0
-        output = ''
 
         while count != index
             current = current.next_node
             count += 1
         end
+        output = ''
         count = 0
 
         while count != quantity
@@ -123,8 +123,22 @@ class LinkedList
             current = current.next_node
             count += 1
         end
+        # remove any whitespace characters at end of string
+        output.rstrip
+    end
 
-        output.chop!
+    def includes?(value)
+        current = @head
+        in_list = false
+
+        # traverse the linkedlist while current != nil
+        while current
+            if current.data == value
+                in_list = true
+                break
+            end
+        end
+        in_list
     end
 end
     
