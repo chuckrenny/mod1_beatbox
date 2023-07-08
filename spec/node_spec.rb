@@ -50,4 +50,15 @@ RSpec.describe Node do
 
         expect(list.to_string).to eq("doop deep")
     end
+
+    it 'can add nodes to the beginning of the list' do
+        list.append("doop")
+        list.append("deep")
+        list.prepend("dop")
+
+        expect(list.head.data).to eq("dop")
+        expect(list.head.next_node.data).to eq("doop")
+    end
+
+
 end

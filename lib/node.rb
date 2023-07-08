@@ -67,5 +67,18 @@ class LinkedList
 
         string.chop!
     end
+
+    def prepend(data)
+        # if linked list is empty
+        if @head.nil?    
+            # create new node with given data and assign it to head                   
+            @head = Node.new(data)
+
+        else #start from the head node
+            old_head = head
+            head = Node.new(data, old_head)
+
+        end
+    end
 end
     
