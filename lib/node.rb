@@ -119,7 +119,7 @@ class LinkedList
         count = 0
 
         while count != quantity
-            output += current
+            output = output + current.data + " "
             current = current.next_node
             count += 1
         end
