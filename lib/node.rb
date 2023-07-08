@@ -18,6 +18,10 @@ class LinkedList
     def append(data)
         split_array = data.split(" ")
 
+        # checks if input is valid, if not then remove
+        split_array.select! { |element| valid.include?(element) }
+    
+
         # if linked list is empty
         if @head.nil?    
             # create new node with given data and assign it to head                   
@@ -159,7 +163,13 @@ class LinkedList
     def play
         input_words = self.to_string
 
-        puts `say -r 100 -v Boing #{input_words}`
+        puts `say -r 250 -v Boing #{input_words}`
+    end
+
+    private
+  
+    def valid
+        ["doop", "deep", "dop", "woo", "su", "mu", "wu", "hee", "haw", "ding", "no", "mo", "ha", "plop", "tur", "ing"]
     end
 end
     
