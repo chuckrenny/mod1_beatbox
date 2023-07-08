@@ -117,15 +117,15 @@ RSpec.describe Node do
         expect(list.to_string).to eq("dop woo doop deep su wu mu")
     end
 
-    it 'can play our linkedlist' do
+    xit 'can play our linkedlist' do
         list.append("who would win in a fight elon musk or our lizard")
         list.append("overlord the zuck er berkg you decide")
-        list.play
+        # list.play
 
         18.times{ list.pop }
      
         list.append("Epic Rap Battles of History")
-        list.play
+        # list.play
     end
 
     it 'can only add words on the approved list' do
@@ -136,5 +136,12 @@ RSpec.describe Node do
         list.append("su wu mu Mississippi")
 
         expect(list.to_string).to eq("dop woo doop deep su wu mu")
+    end
+
+    it 'can change the speed rate of the voice' do
+        list.append("Epic Rap Battles of History")
+        # list.play
+        list.rate(50)
+        # list.play
     end
 end

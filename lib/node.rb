@@ -1,9 +1,11 @@
 class Node
-    attr_accessor :data, :next_node
+    attr_accessor :data, :next_node, :speech_rate
 
+    # puts `say -r 200 -v Boing #{input_words}`
     def initialize(data, next_node = nil)
         @data = data
         @next_node = next_node
+        @speech_rate  = 200
     end
 
 end
@@ -177,10 +179,14 @@ class LinkedList
         # last_node
     end
 
+    def rate(speed)
+        @speech_rate = speed
+    end
+
     def play
         input_words = self.to_string
 
-        puts `say -r 200 -v Boing #{input_words}`
+        puts `say -r #{@speech_rate} -v Boing #{input_words}`
     end
 
     private
