@@ -129,4 +129,14 @@ RSpec.describe Node do
         list.append("hee haw ding no mo ha ha")
         list.play
     end
+
+    it 'can only add words on the approved list' do
+        list.append("doop")
+        list.append("deep")
+        list.prepend("dop")
+        list.insert(1, 'woo')
+        list.append("su wu mu Mississippi")
+
+        expect(list.to_string).to eq("dop woo doop deep su wu mu")
+    end
 end
